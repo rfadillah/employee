@@ -71,7 +71,7 @@ is-invalid @enderror" type="text" name="age"
                                     <option value="{{ $position->id }}" {{ $selected == $position->id ? 'selected' : '' }}>
                                         {{ $position->code .
                                             ' -
-                                                                                                                        ' .
+                                                                                                                                                                ' .
                                             $position->name }}
                                     </option>
                                 @endforeach

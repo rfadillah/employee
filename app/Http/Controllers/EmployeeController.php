@@ -32,8 +32,6 @@ class EmployeeController extends Controller
     public function create()
     {
         $pageTitle = 'Create Employee';
-        // RAW SQL Query
-        // ELOQUENT
         $positions = Position::all();
 
         return view('employee.create', compact('pageTitle', 'positions'));
@@ -57,16 +55,6 @@ class EmployeeController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        // INSERT QUERY
-        // DB::table('employees')->insert([
-        //     'firstname' => $request->firstName,
-        //     'lastname' => $request->lastName,
-        //     'email' => $request->email,
-        //     'age' => $request->age,
-        //     'position_id' => $request->position,
-        // ]);
-
-        // ELOQUENT
         $employee = new Employee;
         $employee->firstname = $request->firstName;
         $employee->lastname = $request->lastName;
@@ -81,9 +69,8 @@ class EmployeeController extends Controller
     public function show(string $id)
     {
         $pageTitle = 'Employee Detail';
-        // RAW SQL QUERY
-        // ELOQUENT
         $employee = Employee::find($id);
+
         return view('employee.show', compact('pageTitle', 'employee'));
     }
 
